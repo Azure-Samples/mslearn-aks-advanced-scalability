@@ -1,10 +1,11 @@
 {
   "name": "mslearn-aks-advanced-scalability",
   "version": "0.0.1",
-  "description": "--- page_type: sample languages: - typescript products: - aks description: \"Demo application for the 'AKS autoscaling with custom metrics' learn module\" urlFragment: \"aks-scaling-advanced-demo\" ---",
-  "main": "index.js",
+  "description": "",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./dist && tsc",
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
