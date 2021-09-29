@@ -34,10 +34,10 @@ This is the base demonstration for the "AKS autoscaling with custom metrics" lea
   - [Running the sample](#running-the-sample)
   - [Running the image](#running-the-image)
   - [Deploying to Kubernetes](#deploying-to-kubernetes)
-  - [Key concepts](#key-concepts)
   - [Contributing](#contributing)
 
 <!-- /code_chunk_output -->
+
 
 ## Contents
 
