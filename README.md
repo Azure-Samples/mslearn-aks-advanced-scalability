@@ -1,57 +1,94 @@
-# Project Name
+---
+page_type: sample
+languages:
+- typescript
+products:
+- aks
+description: "Demo application for the 'AKS autoscaling with custom metrics' learn module"
+urlFragment: "aks-scaling-advanced-demo"
+---
 
-(short, 1-3 sentenced, description of the project)
+# Official Microsoft Sample
 
-## Features
+<!--
+Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
 
-This project framework provides the following features:
+Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
 
-* Feature 1
-* Feature 2
-* ...
+Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
+-->
 
-## Getting Started
+This is the base demonstration for the "AKS autoscaling with custom metrics" learn module.
 
-### Prerequisites
+## Summary
 
-(ideally very short, if any)
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-- OS
-- Library version
-- ...
+<!-- code_chunk_output -->
 
-### Installation
+- [Official Microsoft Sample](#official-microsoft-sample)
+  - [Summary](#summary)
+  - [Contents](#contents)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Running the sample](#running-the-sample)
+  - [Running the image](#running-the-image)
+  - [Deploying to Kubernetes](#deploying-to-kubernetes)
+  - [Key concepts](#key-concepts)
+  - [Contributing](#contributing)
 
-(ideally very short)
+<!-- /code_chunk_output -->
 
-- npm install [package name]
-- mvn install
-- ...
+## Contents
 
-### Quickstart
-(Add steps to get up and running quickly)
+| File/folder       | Description                                |
+|-------------------|--------------------------------------------|
+| `src`             | Sample source code.                        |
+| `.gitignore`      | Define what to ignore at commit time.      |
+| `CHANGELOG.md`    | List of changes to the sample.             |
+| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
+| `README.md`       | This README file.                          |
+| `LICENSE`         | The license for the sample.                |
+| `Dockerfile`      | Docker image file                          |
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+## Prerequisites
 
+This sample is built using [Node.js](https://nodejs.org) and [TypeScript](https://www.typescriptlang.org/), therefore they are needed as prerequisites to run this example.
 
-## Demo
+## Setup
 
-A demo app is included to show how to use the project.
+After cloning the repository, install all dependencies by issuing `npm install` in the root directory.
 
-To run the demo, follow these steps:
+## Running the sample
 
-(Add steps to start up the demo)
+1. Build the code using `npm run build`
+2. Run the sample using `npm start`
 
-1.
-2.
-3.
+## Running the image
 
-## Resources
+Assuming you already have [Docker](https://docs.docker.com/get-docker/) installed, just run `docker build -t image-name .` on the root directory.
 
-(Any additional resources or related projects)
+To execute it, run: `docker run -p <local-port>:3000 image-name`
 
-- Link to supporting information
-- Link to similar sample
-- ...
+You can also opt to run it from the remote source using `docker run -p <local-port>:80 mcr.microsoft.com/mslearn/samples/contoso-renderer`
+
+## Deploying to Kubernetes
+
+Inside the [Kubernetes](./kubernetes) directory, you'll have all necessary resources to deploy the application to an AKS cluster using the [HTTP Application Routing Addon](https://docs.microsoft.com/azure/aks/http-application-routing?WT.mc_id=cloudnative-19716-ludossan).
+
+1. Update the [Ingress.yaml](./kubernetes/ingress.yaml) file and update your specific DNS zone to the one you have in your AKS cluster, this information can be found in the DNS zone resource inside the resource group of your cluster
+2. Use `Kubectl apply -f <filename>` to all the files in the directory to create the workloads
+
+## Contributing
+
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
