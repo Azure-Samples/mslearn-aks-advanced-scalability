@@ -26,18 +26,17 @@ const timeoutSummary = new Prometheus.Summary({
   labelNames: ['pod']
 })
 
-app.get('/render', (req, res) => {
+app.get('/render', async (req, res) => {
   numberOfRequests.inc({ date: new Date().toISOString().split('T')[0], pod: HOSTNAME })
 
   const timeout = Math.floor(Math.random() * (1e4 - 1e2 + 1) + 1e2)
   timeoutSummary.observe({ pod: HOSTNAME }, timeout)
 
   console.log(`Set timeout of ${timeout}`)
-  for (let i = 0; i < timeout; i++) {
-    console.log(`rendering ${i}`)
-  }
-
-  res.send(`Rendered in ${timeout}`)
+  return setTimeout(() => {
+    for (let i = 0; i <= timeout; i++) Math.random()
+    res.send(`Rendered in ${timeout}`)
+  }, timeout)
 })
 
 app.listen(process.env.PORT || 3000, () => {
