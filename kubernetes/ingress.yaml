@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: contoso-renderer
@@ -10,6 +10,8 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: contoso-renderer
-              servicePort: http
+              service:
+                name: contoso-renderer
+                port:
+                  name: http
             path: /
