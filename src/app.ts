@@ -6,7 +6,7 @@ app.get('/render', (req, res) => {
   const timeout = Math.floor(Math.random() * (1e6 - 1e5 + 1) + 1e5)
   console.log(`Set timeout of ${timeout}`)
   for (let i = 0; i < timeout; i++) {
-    console.log(`rendering ${i}`)
+    Math.random()
   }
 
   res.send(`Rendered in ${timeout}`)
