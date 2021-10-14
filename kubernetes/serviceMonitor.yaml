@@ -1,0 +1,20 @@
+kind: ServiceMonitor
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  name: contoso-renderer
+  namespace: monitoring
+  labels:
+    app: contoso-renderer
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: contoso-renderer
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 5s
+  jobLabel: contoso-renderer
+  namespaceSelector:
+    matchNames:
+    - default

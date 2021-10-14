@@ -12,7 +12,7 @@ spec:
         app: contoso-renderer
     spec:
       containers:
-        - image: mcr.microsoft.com/mslearn/samples/contoso-renderer
+        - image: mcr.microsoft.com/mslearn/samples/contoso-renderer:instrumented
           name: contoso-renderer
           resources:
             requests:
